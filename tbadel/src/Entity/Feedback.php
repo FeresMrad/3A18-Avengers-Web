@@ -3,6 +3,7 @@
 namespace App\Entity;
 use App\Entity\Transactions;
 use App\Repository\FeedbackRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass:FeedbackRepository::class)]
