@@ -13,7 +13,13 @@ class Transactions
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id;
-
+   /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getId();
+    }
     #[ORM\Column(name: "to_user_id", type: "integer", nullable: true)]
     private ?int $toUserId;
 
