@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('feedback/_form.html.twig') }}
+    <a href="{{ path('app_feedback_index') }}">back to list</a>
+{% endblock %}
+
