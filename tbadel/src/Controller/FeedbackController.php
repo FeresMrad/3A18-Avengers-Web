@@ -23,6 +23,17 @@ class FeedbackController extends AbstractController
             'feedback' => $feedback,
         ]);
     }
+    #[Route('/feedbackA', name: 'app_feedback_indexA', methods: ['GET'])]
+    public function indexA(EntityManagerInterface $entityManager): Response
+    {
+        $feedback = $entityManager
+            ->getRepository(Feedback::class)
+            ->findAll();
+
+        return $this->render('feedback/Admin/index.html.twig', [
+            'feedback' => $feedback,
+        ]);
+    }
 
     #[Route('/addfeedback', name: 'app_feedback_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
