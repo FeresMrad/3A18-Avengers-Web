@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transactions{% endblock %}
+
+{% block body %}
+    <h1>Transactions</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ transaction.id }}</td>
+            </tr>
+            <tr>
+                <th>ToUserId</th>
+                <td>{{ transaction.toUserId }}</td>
+            </tr>
+            <tr>
+                <th>ToUserItemId</th>
+                <td>{{ transaction.toUserItemId }}</td>
+            </tr>
+            <tr>
+                <th>FromUserItem</th>
+                <td>{{ transaction.fromUserItem }}</td>
+            </tr>
+            <tr>
+                <th>ToUserItem</th>
+                <td>{{ transaction.toUserItem }}</td>
+            </tr>
+            <tr>
+                <th>FromUserImage</th>
+                <td>{{ transaction.fromUserImage }}</td>
+            </tr>
+            <tr>
+                <th>ToUserImage</th>
+                <td>{{ transaction.toUserImage }}</td>
+            </tr>
+            <tr>
+                <th>JetonsProp</th>
+                <td>{{ transaction.jetonsProp }}</td>
+            </tr>
+            <tr>
+                <th>JetonsDem</th>
+                <td>{{ transaction.jetonsDem }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ transaction.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ transaction.etat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_transactions_index') }}">back to list</a>
+
+    <a href="{{ path('app_transactions_edit', {'id': transaction.id}) }}">edit</a>
+
+    {{ include('transactions/_delete_form.html.twig') }}
+{% endblock %}
