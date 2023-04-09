@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transactions index{% endblock %}
+
+{% block body %}
+    <h1>Transactions index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ToUserId</th>
+                <th>ToUserItemId</th>
+                <th>FromUserItem</th>
+                <th>ToUserItem</th>
+                <th>FromUserImage</th>
+                <th>ToUserImage</th>
+                <th>JetonsProp</th>
+                <th>JetonsDem</th>
+                <th>Commentaire</th>
+                <th>Etat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.toUserId }}</td>
+                <td>{{ transaction.toUserItemId }}</td>
+                <td>{{ transaction.fromUserItem }}</td>
+                <td>{{ transaction.toUserItem }}</td>
+                <td>{{ transaction.fromUserImage }}</td>
+                <td>{{ transaction.toUserImage }}</td>
+                <td>{{ transaction.jetonsProp }}</td>
+                <td>{{ transaction.jetonsDem }}</td>
+                <td>{{ transaction.commentaire }}</td>
+                <td>{{ transaction.etat }}</td>
+                <td>
+                    <a href="{{ path('app_transactions_show', {'id': transaction.id}) }}">show</a>
+                    <a href="{{ path('app_transactions_edit', {'id': transaction.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_transactions_new') }}">Create new</a>
+{% endblock %}
